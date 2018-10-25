@@ -1,7 +1,7 @@
 const quizQuestions = [
   {
       question: 'What year was Travis County established?',
-      explanation: `was established on January 25, 1840, by an act of the Fourth Congress
+      explanation: `Travis County was established on January 25, 1840, by an act of the Fourth Congress
     of the Republic of Texas, days after the community of Waterloo had been
     renamed Austin and designated the capital city. The county was named after
     William Barret Travis, legendary commander of the Republic of Texas forces
@@ -28,27 +28,29 @@ const quizQuestions = [
       ],
   },
   {
-      question: 'What person was the The Travis County Courthouse renamed in honor of in 2005?',
-      explanation: `On February 26, 1946, Heman Marion Sweatt, an American of African descent,
-      was denied admission to the University of Texas School of Law, as state law required
-      segregation by race. The Court of Civil Appeals would later write that “he possessed
-      every essential qualification for admission, except that of race, upon which ground
-      alone his application was denied.`,
-       correct: 'Heman Marion Sweatt',
+      question: 'What state governor was also a Travis County commissioner in the 1970s?',
+      explanation: `In 1976, Richards ran against and defeated a three-term incumbent on the four-member Travis County
+       Commissioners' Court, becoming the first woman Travis County Commissioner. In 1980 Richards was elected to a second term as commissioner.
+       In 1982, Richards won the Democratic nomination for State Treasure
+       and in November of that year, Richards became the first woman elected to statewide office in more than fifty years.
+       In 1990, she won the Democratic gubernatorial nomination against Attorney General (and former U.S. representative)
+       Jim Mattox of Dallas and former Governor Mark White of Houston. In November of 1990 she won the governorship and
+       served until 1994 when she was defeated by George W. Bush.`,
+       correct: 'Ann Richards',
        answers: [
           {
               no: '1',
-              value: 'Heman Marion Sweatt',
-              answer: 'true',
+              value: 'Bill Clements',
+              answer: 'false',
           },
           {
               no: '2',
               value: 'Ann Richards',
-              answer: 'false',
+              answer: 'true',
           },
           {
               no: '3',
-              value: 'Thurgood Marshall',
+              value: 'Mark White',
               answer: 'false',
           },
       ],
@@ -56,7 +58,14 @@ const quizQuestions = [
   {
       question: `What was the name of Travis County's long serving District Attorney who recently had a Travis County building
                 named after him?`,
-      explanation: 'Ronnie Earle served as District Attorney for Travis County from 1976 until 2008.',
+      explanation: `Ronnie Earle served as District Attorney for Travis County from 1976 until 2008. He was born in Fort Worth, Texas
+                and became a municipal judge at the age of 26. He was elected to the Texas House of Representatives as a Democrat in 1972
+                and advocated for fairness and justice. He was elected Travis County District Attorney in 1976 and
+                became known over his tenure for establishing programs for crime prevention,
+                alternative sentencing and the reintegration of former offenders into society.
+                He brought together officials from a wide range of fields, such as law enforcement, education, mental health
+                and business, to create and enact reforms. He retired from the District Attorney's office in 2008 after 8 terms in office.
+                In 2018, Travis County named a new District Attorney's building in honor of him. `,
       correct: 'Ronnie Earle',
       answers: [
           {
@@ -106,11 +115,11 @@ const quizQuestions = [
   },
   {
       question: 'Which of the following options was not a former rural community in Travis County?',
-      explanation: `Nameless located in northwestern Travis County, Nameless was situated on Sandy Creek
+      explanation: `Nameless was located in northwestern Travis County. It was situated on Sandy Creek
        and just off Farm Road 1431, five miles northeast of Lago Vista. It was settled in 1869.
        Kincheonville was a community located in southwest Austin. It was bordered roughly by present-day
        Paisano Trail on the north, Davis Lane on the South, Brodie Lane on the west, and Longview Road
-       on the east.The community was established by Thomas Kincheon in June of 1865, and it developed
+       on the east. The community was established by Thomas Kincheon in June of 1865, and it developed
        into a thriving freedman community.`,
       correct: 'Manchacaville',
       answers: [

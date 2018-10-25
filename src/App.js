@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import update from 'react-addons-update';
 import firebase from './firebase.js';
-import styled, { ThemeProvider, injectGlobal } from 'styled-components';
-import { CSSTransitionGroup } from 'react-transition-group'; // ES6
+import { ThemeProvider, injectGlobal } from 'styled-components';
 import quizQuestions from './api/quizQuestions';
 import Quiz from './components/Quiz';
 import Result from './components/Result';
@@ -157,11 +156,12 @@ stopTimer() {
     finalTime: this.state.time,
   });
   clearInterval(this.timer);
-  const findID = this.state.users.filter((user) => {
-    if (user.user === this.state.username) {
-      return user.id;
-    }
-  });
+  const findID = this.state.users
+    .filter((user) => {
+      if (user.user === this.state.username) {
+        return user.id;
+      }
+    });
   const id = findID[0].id;
   return firebase.database().ref(`/users/${id}`).update(
     {
@@ -182,11 +182,12 @@ setUserAnswer(value, name) {
     answerResult: name,
     checked: value,
   });
-  const findID = this.state.users.filter((user) => {
-    if (user.user === this.state.username) {
-      return user.id;
-    }
-  });
+  const findID = this.state.users
+    .filter((user) => {
+      if (user.user === this.state.username) {
+        return user.id;
+      }
+    });
   const id = findID[0].id;
   return firebase.database().ref(`/users/${id}`).update(
     {
