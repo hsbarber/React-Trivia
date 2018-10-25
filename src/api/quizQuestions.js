@@ -28,7 +28,7 @@ const quizQuestions = [
       ],
   },
   {
-      question: 'What state governor was also a Travis County commissioner in the 1970s?',
+      question: 'What Texas governor was also a Travis County commissioner in the 1970s?',
       explanation: `In 1976, Richards ran against and defeated a three-term incumbent on the four-member Travis County
        Commissioners' Court, becoming the first woman Travis County Commissioner. In 1980 Richards was elected to a second term as commissioner.
        In 1982, Richards won the Democratic nomination for State Treasure
