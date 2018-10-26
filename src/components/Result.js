@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { CSSTransitionGroup } from 'react-transition-group';
 import ms from 'pretty-ms';
 import Background from '../img/historyday.jpg';
 import styled from 'styled-components';
@@ -8,14 +9,18 @@ const ResultContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 4rem 0;
-  strong {
-    font-weight: bold;
-    text-decoration: underline;
-  }
-  h2 {
-    padding: 0 4rem;
-  }
 
+
+
+`;
+const TopResults = styled.h2`
+    padding: 0 4rem;
+    text-align: center;
+    /* transition-delay: ${props => `${props.delay * 0.20}s`} ; */
+    strong {
+      font-weight: bold;
+      text-decoration: underline;
+    }
 
 `;
 const Banner = styled.div`
@@ -107,9 +112,7 @@ class Result extends Component {
   greatJob() {
     if (this.props.quizResult[0] >= 4) {
       return (
-        <div className="greatJob">
-          <h2>You are a real history buff! Great job!</h2>
-        </div>
+        <TopResults style={{ transitionDelay: `${4 * 0.10}s` }}>You are a real history buff! Great job!</TopResults>
       );
     }
   }
@@ -134,51 +137,66 @@ class Result extends Component {
               return 0;
     })
     .map((item, i) =>
-      (<li key={i}>
+      (<li key={i} >
         <span>{i + 1}.</span> <span>{item.user}</span>
         <span>{item.answersCount.true}</span> <span>{ms(item.time)}</span>
       </li>),
     );
     return (
+      <CSSTransitionGroup
+        transitionName="fade"
+        transitionAppear
+        transitionAppearTimeout={500}
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={500}
+      >
+        <ResultContainer>
+          <CSSTransitionGroup
+            transitionName="fade"
+            transitionAppear
+            transitionAppearTimeout={500}
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={500}
+          >
+            <TopResults style={{ transitionDelay: `${0 * 0.10}s` }}>You had <strong>{this.props.quizResult[0]} true</strong> and <strong>{this.props.quizResult[1]} false</strong> !</TopResults>
+            <TopResults style={{ transitionDelay: `${2 * 0.10}s` }}>Your time was <strong>{ms(this.props.finalTime)}</strong></TopResults>
+            {this.greatJob()}
+            <TopResults style={{ transitionDelay: `${6 * 0.10}s` }}>To learn more about Travis County's history,
+                          come to Travis County History Day on November 2nd.
+            </TopResults>
+          </CSSTransitionGroup>
 
-      <ResultContainer>
-        <h2>You had <strong>{this.props.quizResult[0]} true</strong> and <strong>{this.props.quizResult[1]} false</strong> !</h2>
-        <h2>Your time was <strong>{ms(this.props.finalTime)}</strong></h2>
-        {this.greatJob()}
-        <h2>To learn more about Travis County's history,
-          come to Travis County History Day on November 2nd.
-        </h2>
-        <Banner>
-          <img src={Background} alt="historydaybg" />
-          <BannerText>
-            <h1>11th annual Travis County History Day</h1>
-            <h4>A Catalyst for Change:</h4>
-            <h4>The Impact and Effect of World War I on Travis County</h4>
-            <h4>10am-noon</h4>
-            <h4>Nov. 2, 2018</h4>
-            <h4>700 Lavaca St., Commissioners Courtroom and Hall of Government</h4>
-          </BannerText>
-        </Banner>
-        <LearnMore>
-          <a href="https://www.facebook.com/TravisCountyHistoryDay/">
-            Learn more at our Facebook page!
-          </a>
-        </LearnMore>
-        <h2>Thanks for Playing!</h2>
 
-        <Rankings>
-          <RankingsHeader>Player Rankings</RankingsHeader>
-          <TopBar>
-            <span>Ranking</span>
-            <span>Username</span>
-            <span>True</span>
-            <span>Time</span>
-          </TopBar>
-          {users}
-        </Rankings>
+          <Banner>
+            <img src={Background} alt="historydaybg" />
+            <BannerText>
+              <h1>11th annual Travis County History Day</h1>
+              <h4>A Catalyst for Change:</h4>
+              <h4>The Impact and Effect of World War I on Travis County</h4>
+              <h4>10am-noon</h4>
+              <h4>Nov. 2, 2018</h4>
+              <h4>700 Lavaca St., Commissioners Courtroom and Hall of Government</h4>
+            </BannerText>
+          </Banner>
+          <LearnMore>
+            <a href="https://www.facebook.com/TravisCountyHistoryDay/">
+              Learn more at our Facebook page!
+            </a>
+          </LearnMore>
+          <h2>Thanks for Playing!</h2>
 
-      </ResultContainer>
-
+          <Rankings>
+            <RankingsHeader>Player Rankings</RankingsHeader>
+            <TopBar>
+              <span>Ranking</span>
+              <span>Username</span>
+              <span>True</span>
+              <span>Time</span>
+            </TopBar>
+            {users}
+          </Rankings>
+        </ResultContainer>
+      </CSSTransitionGroup>
     );
   }
 }

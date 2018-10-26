@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import Question from '../components/Question';
 import QuestionCount from '../components/QuestionCount';
@@ -34,39 +34,46 @@ const AnswerOptions = styled.div`
   padding: 0;
   list-style: none;
 `;
-function Quiz(props) {
-  function renderAnswerOptions(key) {
+class Quiz extends Component {
+  constructor(props) {
+    super(props);
+    this.renderAnswerOptions = this.renderAnswerOptions.bind(this);
+    this.correctAnswer = this.correctAnswer.bind(this);
+  }
+  componentDidMount() { window.scrollTo(0, 0); }
+  renderAnswerOptions(key) {
     return (
       <AnswerOption
         key={key.value}
         answerContent={key.value}
         answerNumber={key.no}
         answer={key.answer}
-        checked={props.checked}
-        questionId={props.questionId}
-        onAnswerSelected={props.onAnswerSelected}
+        checked={this.props.checked}
+        questionId={this.props.questionId}
+        onAnswerSelected={this.props.onAnswerSelected}
       />
     );
   }
-  function correctAnswer() {
-    if (props.checked) {
+   correctAnswer() {
+    if (this.props.checked) {
       return (
         <IsCorrect
-          correctAnswer={props.result}
-          correct={props.correct}
-          explanation={props.exp}
-          nextButton={props.validateAnswers}
-          questionId={props.questionId}
-          stopTimer={props.stopTimer}
+          correctAnswer={this.props.result}
+          correct={this.props.correct}
+          explanation={this.props.exp}
+          nextButton={this.props.validateAnswers}
+          questionId={this.props.questionId}
+          stopTimer={this.props.stopTimer}
         />
       );
      }
   }
-  return (
+  render() {
+    return (
 
-    <QuestionContainer >
-      <Timer><h3>timer: <span>{ms(props.time, { compact: true })}</span></h3></Timer>
-      {props.checked ? correctAnswer() :
+      <QuestionContainer >
+        <Timer><h3>timer: <span>{ms(this.props.time, { compact: true })}</span></h3></Timer>
+        {this.props.checked ? this.correctAnswer() :
         <CSSTransitionGroup
           transitionName="fade"
           transitionAppear
@@ -74,21 +81,22 @@ function Quiz(props) {
           transitionEnterTimeout={300}
           transitionLeaveTimeout={300}
         >
-          <div key={props.questionId}>
+          <div key={this.props.questionId}>
             <QuestionCount
-            counter={props.questionId}
-            total={props.questionTotal}
-          />
-            <Question content={props.question} />
+                counter={this.props.questionId}
+                total={this.props.questionTotal}
+              />
+            <Question content={this.props.question} />
             <AnswerOptions>
-            {props.answerOptions.map(renderAnswerOptions)}
-          </AnswerOptions>
+                {this.props.answerOptions.map(this.renderAnswerOptions)}
+              </AnswerOptions>
           </div>
         </CSSTransitionGroup>
-        }
-    </QuestionContainer>
+          }
+      </QuestionContainer>
 
-  );
+    );
+  }
 }
 
 

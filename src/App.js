@@ -138,6 +138,7 @@ componentDidMount() {
 				users: newState,
       });
     });
+     window.scrollTo(0, 0);
 }
 // FUNCTIONS FOR TIMER
 startTimer() {
@@ -236,12 +237,13 @@ handleAddUser(e) {
     user: this.state.username,
     answersCount: {},
   };
+  const username = this.state.username;
   firebase.auth().signInAnonymously()
     .then((authUser) => {
       this.setState({ authUser });
     })
     .then(() => {
-      usersRef.orderByChild('user').equalTo(this.state.username).once('value', (snapshot) => {
+      usersRef.orderByChild('user').equalTo(username.toLowerCase()).once('value', (snapshot) => {
         if (snapshot.exists()) {
           const userData = snapshot.val();
           console.log(userData);
@@ -351,7 +353,7 @@ render() {
         <ThemeProvider theme={theme}>
           <div className="container">
             {this.state.result ? this.renderResult() : this.renderQuiz() }
-            {/* {this.renderQuiz() } */}
+            {/* {this.renderResult() } */}
           </div>
         </ThemeProvider>
       </div>
