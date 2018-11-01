@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 import ms from 'pretty-ms';
-import Background from '../img/historyday.jpg';
 import styled from 'styled-components';
 
 const ResultContainer = styled.div`
@@ -16,54 +15,16 @@ const ResultContainer = styled.div`
 const TopResults = styled.h2`
     padding: 0 4rem;
     text-align: center;
-    /* transition-delay: ${props => `${props.delay * 0.20}s`} ; */
     strong {
       font-weight: bold;
       text-decoration: underline;
     }
-
-`;
-const Banner = styled.div`
-  position: relative;
-  max-width: 100%;
-  height: auto;
-  img {
-    width: 100%;
-    margin: 0;
-  }
-`;
-const BannerText = styled.div`
-  display: block;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 2rem ;
-  margin: 0;
-  h1, h4 {
-    color: rgba(256, 256, 256, 0.8);
-    padding: 0 2rem;
-  }
-  @media (min-width: 1360px) {
-    position: absolute;
-    left: 25px;
-    top: 50%;
-    transform: translateY(-50%);
-
-    width: 30%;
-  }
-
-`;
-const LearnMore = styled.h2`
-  text-align: left;
-  a {
-
-    color: ${props => props.theme.accent};
-    transition: 0.3s ease-in-out;
-    border-bottom: 2px solid transparent;
-    &:hover{
-      border-bottom: 2px solid ${props => props.theme.accent};
+    a {
+      color: ${props => props.theme.accent};
+      text-decoration: underline;
     }
-  }
 `;
+
 const Rankings = styled.div`
 
   border-right: 1px solid ${props => props.theme.grey};
@@ -161,29 +122,10 @@ class Result extends Component {
             <TopResults style={{ transitionDelay: `${0 * 0.10}s` }}>You had <strong>{this.props.quizResult[0]} true</strong> and <strong>{this.props.quizResult[1]} false</strong> !</TopResults>
             <TopResults style={{ transitionDelay: `${2 * 0.10}s` }}>Your time was <strong>{ms(this.props.finalTime)}</strong></TopResults>
             {this.greatJob()}
-            <TopResults style={{ transitionDelay: `${6 * 0.10}s` }}>To learn more about Travis County's history,
-                          come to Travis County History Day on November 2nd.
+            <TopResults style={{ transitionDelay: `${6 * 0.10}s` }}>Thanks for Playing!
+                You can learn more about Travis County history on <a href="https://traviscountyhistory.org">our website</a>.
             </TopResults>
           </CSSTransitionGroup>
-
-
-          <Banner>
-            <img src={Background} alt="historydaybg" />
-            <BannerText>
-              <h1>11th annual Travis County History Day</h1>
-              <h4>A Catalyst for Change:</h4>
-              <h4>The Impact and Effect of World War I on Travis County</h4>
-              <h4>10am-noon</h4>
-              <h4>Nov. 2, 2018</h4>
-              <h4>700 Lavaca St., Commissioners Courtroom and Hall of Government</h4>
-            </BannerText>
-          </Banner>
-          <LearnMore>
-            <a href="https://www.facebook.com/TravisCountyHistoryDay/">
-              Learn more at our Facebook page!
-            </a>
-          </LearnMore>
-          <h2>Thanks for Playing!</h2>
 
           <Rankings>
             <RankingsHeader>Player Rankings</RankingsHeader>

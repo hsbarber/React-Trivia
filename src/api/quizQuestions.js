@@ -56,8 +56,8 @@ const quizQuestions = [
       ],
   },
   {
-      question: `What was the name of Travis County's long serving District Attorney who recently had a Travis County building
-                named after him?`,
+      question: `What was the name of Travis County's long serving District Attorney who had a Travis County building
+                named after him in 2018?`,
       explanation: `Ronnie Earle served as District Attorney for Travis County from 1976 until 2008. He was born in Fort Worth, Texas
                 and became a municipal judge at the age of 26. He was elected to the Texas House of Representatives as a Democrat in 1972
                 and advocated for fairness and justice. He was elected Travis County District Attorney in 1976 and
