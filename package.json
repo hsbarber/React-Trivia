@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "firebase": "^5.5.3",
+    "merge": "^1.2.1",
     "pretty-ms": "^4.0.0",
     "react": "^15.5.4",
     "react-addons-update": "^15.5.2",
