@@ -56,47 +56,6 @@ const Answer = styled.li`
   background-size: 27px;
   border-color: ${props => props.theme.accent};
 }
-  /* input {
-    position: absolute;
-    width: auto;
-    opacity: 0;
-  }
-  input, label {
-    cursor: pointer;
-    display: inline;
-  }
-  /* input:checked ~ label {
-    background-color: ${props => props.theme.offWhite};
-  } */
-  /* input:checked ~ label:before {
-    content: '';
-    background:  ${props => props.theme.accent} url(${Check}) no-repeat;
-    background-size: 27px;
-    border-color: ${props => props.theme.accent};
-  } */
-  /* label {
-    position: relative;
-    width: 100%;
-    margin: 0;
-    padding: 0 0 0 8rem;
-    font-size: 2rem;
-    font-family: 'Crimson Text', serif;
-    &:before {
-      position: absolute;
-      top: 0;
-      left: 38px;
-      width: 28px;
-      height: 28px;
-      content: '';
-      display: inline-block;
-      vertical-align: middle;
-      background: #fff;
-      border: 1px solid ${props => props.theme.grey};
-      border-radius: 50%;
-      transition: all 0.3s;
-    }
-  }  */
-
 
 `;
 

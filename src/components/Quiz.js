@@ -89,7 +89,7 @@ class Quiz extends Component {
             <Question content={this.props.question} />
             <AnswerOptions>
                 {this.props.answerOptions.map(this.renderAnswerOptions)}
-              </AnswerOptions>
+            </AnswerOptions>
           </div>
         </CSSTransitionGroup>
           }

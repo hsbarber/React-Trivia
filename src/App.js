@@ -67,6 +67,31 @@ injectGlobal`
         }
       }
     }
+  .fade-appear {
+    opacity: 0.01;
+  }
+
+  .fade-appear.fade-appear-active {
+    opacity: 1;
+    transition: opacity .5s ease-in;
+  }
+  .fade-enter {
+    opacity: 0.01;
+  }
+
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+  }
+
+  .fade-leave {
+    opacity: 1;
+  }
+
+  .fade-leave.fade-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+  }
 `;
 
 class App extends Component {
@@ -109,8 +134,6 @@ class App extends Component {
     this.startTimer = this.startTimer.bind(this);
     this.stopTimer = this.stopTimer.bind(this);
     this.resetTimer = this.resetTimer.bind(this);
-    // this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-    // this.renderIntro = this.renderIntro.bind(this);
   }
 componentDidMount() {
   const shuffledAnswerOptions = quizQuestions.map(question =>
@@ -174,7 +197,6 @@ resetTimer() {
   this.setState({ time: 0, isOn: false });
 }
 setUserAnswer(value, name) {
-  // const id = this.state.users.filter(user => user.id)
   const updatedAnswersCount = update(this.state.answersCount, {
       [name]: { $apply: currentValue => currentValue + 1 },
     });
@@ -260,9 +282,9 @@ handleAddUser(e) {
     });
 }
 shuffleArray(array) {
-    let currentIndex = array.length,
-      temporaryValue,
-      randomIndex;
+    let currentIndex = array.length;
+    let temporaryValue;
+    let randomIndex;
 
     // While there remain elements to shuffle...
     while (currentIndex !== 0) {
@@ -280,7 +302,6 @@ shuffleArray(array) {
 }
 handleAnswerSelected(event) {
   this.setUserAnswer(event.currentTarget.value, event.currentTarget.name);
-  console.log(event.currentTarget.value, event.currentTarget.name);
 }
 startQuiz() {
   const quizStart = this.state.quizStart + 1;
@@ -313,23 +334,6 @@ renderQuiz() {
       />
     );
   }
-  // return (
-  //   <Quiz
-  //     checked={this.state.checked}
-  //     answerOptions={this.state.answerOptions}
-  //     questionId={this.state.questionId}
-  //     question={this.state.question}
-  //     questionTotal={quizQuestions.length}
-  //     onAnswerSelected={this.handleAnswerSelected}
-  //     validateAnswers={this.setNextQuestion}
-  //     result={this.state.answerResult}
-  //     exp={this.state.explanation}
-  //     correct={this.state.correct}
-  //     time={this.state.time}
-  //     stopTimer={this.stopTimer}
-  //     finalTime={this.state.finalTime}
-  //   />
-  // );
     return (
       <Intro
         startQuiz={this.startQuiz}
@@ -353,7 +357,6 @@ render() {
         <ThemeProvider theme={theme}>
           <div className="container">
             {this.state.result ? this.renderResult() : this.renderQuiz() }
-            {/* {this.renderResult() } */}
           </div>
         </ThemeProvider>
       </div>

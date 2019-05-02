@@ -19,88 +19,6 @@ h4 {
   left: 0;
 }
 
-/* .background-enter {
-  transform: translate(100%);
-}
-.background-enter.background-enter-active {
-  transform: translate(0%);
-  transition: transform 1000ms ease-in-out;
-}
-.background-leave {
-  transform: translate(0%);
-}
-.background-leave.background-leave-active {
-  transform: translate(-100%);
-  transition: transform 1000ms ease-in-out;
-} */
-.fade-appear {
-  opacity: 0.01;
-  }
-
-.fade-appear.fade-appear-active {
-  opacity: 1;
-  transition: opacity .5s ease-in;
-}
-.fade-enter {
-  opacity: 0.01;
-}
-
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 300ms ease-in;
-}
-
-.fade-leave {
-  opacity: 1;
-}
-
-.fade-leave.fade-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-}
-/* .up-appear {
-  opacity: 0.01;
-  }
-
-.up-appear.up-appear-active {
-  opacity: 1;
-  transition: opacity .5s ease-in;
-} */
-.up-enter {
-  transform: translateY(0);
-  transition: transform 500ms linear;
-}
-
-.up-enter.up-enter-active {
-
-  transform: translateY(100%);
-}
-
-.up-leave {
-  transform: translateX(0);
-}
-
-.up-leave.fade-up-active {
-  transform: translateY(100%);
-  transition: transform 500ms linear;
-}
-.background-enter {
-  opacity: 0;
-  transition: all 300ms ease-out;
-  transition-delay: 300ms;
-}
-.background-enter.background-enter-active {
-  opacity: 1;
-  transform: none;
-}
-.background-leave {
-  opacity: 1;
-  transition: all 300ms linear;
-}
-.background-leave.background-leave-active {
-  opacity: 0;
-}
-
 
 
 
@@ -127,13 +45,6 @@ a.back:hover {
   text-shadow: 2px 2px #292828;
 }
 
-
-
-
-/* Quiz Component */
-.answerOptions {
-
-}
 
 /* QuestionCount Component */
 .questionCount {
